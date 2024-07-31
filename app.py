@@ -91,7 +91,12 @@ def chatbot_response(user_input):
    
     # Return the response from the dictionary or a default message
     return responses.get(user_input, "Sorry, I don't understand that question.")
-
+    
+# Serve the index.html file
+@app.route('/')
+def index():
+    return send_from_directory('.', 'index.html')
+    
 @app.route('/chat', methods=['POST'])
 def chat():
     data = request.json
